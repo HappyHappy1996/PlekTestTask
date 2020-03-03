@@ -1,13 +1,13 @@
 const router = require('express-promise-router')();
-const { replyJson } = require('./response-handlers');
+const { replyJson } = require('../../server/response-handlers');
 
 router.get(
-  '/companies',
+  '/dummy',
   async (request, reply) => {
     replyJson(reply, { hello: 'friend' });
   },
 );
 
 module.exports = {
-  mainRouter: router,
+  dummyRouter: router,
 };

@@ -1,10 +1,10 @@
 version: "2.4"
 
 services:
-  back-end:
+  api:
     build: .
     restart: always
-    container_name: back-end
+    container_name: api
     volumes:
       - ./codes:/app/codes
     ports:
