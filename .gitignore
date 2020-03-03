@@ -1,0 +1,16 @@
+/**/.vscode/
+/**/.idea/
+/.idea/
+/**/node_modules/
+/**/.tags
+/**/*.log
+/**/.env
+/**/coverage/
+/**/coverage-unit/
+!scripts/local/tests/coverage/
+/**/secrets/*
+/**/secrets/.gitkeep
+/local/data/*
+!local/data/.gitkeep
+/**/*.retry
+/.env

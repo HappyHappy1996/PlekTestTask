@@ -1,0 +1,21 @@
+version: "2.4"
+
+services:
+
+  back-end:
+    depends_on:
+      mongo:
+        condition: service_healthy
+    extends:
+      file: back-end/docker-compose.yml
+      service: back-end
+    env_file: back-end/.env
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    healthcheck:
+      test: "exit 0"

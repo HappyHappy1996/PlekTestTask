@@ -1,0 +1,13 @@
+version: "2.4"
+
+services:
+  back-end:
+    build: .
+    restart: always
+    container_name: back-end
+    volumes:
+      - ./codes:/app/codes
+    ports:
+      - 127.0.0.1:34023:3000/tcp
+      - 9262:9262 # debugger port
+    command: npm run start:local
