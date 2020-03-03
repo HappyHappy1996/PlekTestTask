@@ -1,10 +1,12 @@
 const router = require('express-promise-router')();
-const { replyJson } = require('../../server/response-handlers');
+const { dummyService } = require('./service');
+const { replyNoContent } = require('../../server/response-handlers');
 
 router.get(
-  '/dummy',
+  '/dummy/create',
   async (request, reply) => {
-    replyJson(reply, { hello: 'friend' });
+    await dummyService.createDummyData();
+    replyNoContent(reply);
   },
 );
 

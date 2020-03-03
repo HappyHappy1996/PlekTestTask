@@ -8,6 +8,7 @@ const DB_CONFIG = {
 function initDbConnection() {
   return mongoose.connect(DB_CONFIG.url, {
     useNewUrlParser: true,
+    useFindAndModify: false,
   })
     .catch((err) => {
       logger.error('Could not connect to DB. Error: ', err);

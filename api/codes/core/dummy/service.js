@@ -1,4 +1,5 @@
 const { userDao } = require('../user/dao');
+const { groupDao } = require('../group/dao');
 
 async function populate() {
   const usersCount = await userDao.count();
@@ -7,7 +8,7 @@ async function populate() {
     : createDummyData();
 }
 
-function createDummyData() {
+async function createDummyData() {
   const users = [
     {
       username: 'dummy-username1',
@@ -17,13 +18,21 @@ function createDummyData() {
     },
   ];
 
+  const groups = [
+    {
+      name: 'dummy-group1',
+    },
+  ];
+
   return Promise.all(
-    users.map((user) => userDao.create(user)),
+    ...users.map(userDao.create),
+    ...groups.map(groupDao.create),
   );
 }
 
 module.exports = {
   dummyService: {
     populate,
+    createDummyData,
   },
 };
